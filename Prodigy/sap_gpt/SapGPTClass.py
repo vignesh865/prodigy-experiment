@@ -4,7 +4,7 @@
 import logging
 
 import numpy as np
-import plotly.express as px
+#import plotly.express as px
 import qdrant_client
 import tiktoken
 from langchain.chains import RetrievalQA
@@ -150,10 +150,10 @@ class SapGpt:
 
         return self.get_adjacent_similarities(sentence_vecs_np)
 
-    def plot_similiarites(self, sentence_list):
-        sims = self.get_adjacent_similarities_from_text(sentence_list)
-        fig = px.line(x=range(sims.shape[0]), y=sims, title='Similarities between texts')
-        fig.show()
+    # def plot_similiarites(self, sentence_list):
+    #     sims = self.get_adjacent_similarities_from_text(sentence_list)
+    #     fig = px.line(x=range(sims.shape[0]), y=sims, title='Similarities between texts')
+    #     fig.show()
 
     def group_contextually(self, sentence_list, similarity_threshold, chunk_size):
         sentence_vecs = self.embeddings.embed_documents(sentence_list)
