@@ -186,31 +186,13 @@ class SapGpt:
         print("Total chunks - ", len(new_list))
         return [Document(page_content=txt) for txt in new_list]
 
-    # ### Vector store - #client.delete_collection(PDF_COLLECTION_NAME)
-    def get_vector_db(self, collection_name):
-        if self.collection_db_ref.get(collection_name) is not None:
-            return self.collection_db_ref.get(collection_name)
-
-        # client = qdrant_client.QdrantClient("localhost", port=6333, grpc_port=6333)
-        #client = qdrant_client.QdrantClient(location = ":memory:")
-        client = qdrant_client.QdrantClient(
-            url="https://e70a4c4d-32b8-491d-a47f-b85967ea8feb.us-east-1-0.aws.cloud.qdrant.io:6333", 
-            api_key="B7W75ejwJNKcoLM5E0DkaMZRFyjlC0nNq4BFDmwMQOQhmvZkz4BQng",
-        )
-
-        client.delete_collection(collection_name)
-        db_ref = Qdrant(
-            client=client, collection_name=collection_name,
-            embeddings=self.embeddings,
-        )
-
-        self.collection_db_ref[collection_name] = db_ref
-
-        return db_ref
-
     def insert_vector_representations(self, documents):
-        db_ref = self.get_vector_db(SapGpt.PDF_COLLECTION_NAME)
-        return db_ref.from_documents(documents, self.embeddings, collection_name=SapGpt.PDF_COLLECTION_NAME)
+        return Qdrant.from_documents(documents, self.embeddings,
+                                     collection_name=SapGpt.PDF_COLLECTION_NAME,
+                                     host="e70a4c4d-32b8-491d-a47f-b85967ea8feb.us-east-1-0.aws.cloud.qdrant.io",
+                                     port=6333,
+                                     api_key="B7W75ejwJNKcoLM5E0DkaMZRFyjlC0nNq4BFDmwMQOQhmvZkz4BQng"
+                                     )
 
     # ### Retriever
 
