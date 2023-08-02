@@ -1,8 +1,7 @@
 pdfminer
-tensorflow-hub
+tensorflow-hub==0.14.0
 sentence-transformers
 rank_bm25
-
 Flask==1.1.2
 Flask_RESTful==0.3.10
 gdown==4.7.1
