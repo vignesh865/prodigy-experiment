@@ -198,7 +198,8 @@ class SapGpt:
         if self.collection_db_ref.get(collection_name) is not None:
             return self.collection_db_ref.get(collection_name)
 
-        client = qdrant_client.QdrantClient("localhost", port=6333, grpc_port=6333)
+        # client = qdrant_client.QdrantClient("localhost", port=6333, grpc_port=6333)
+        client = qdrant_client.QdrantClient(location = ":memory:")
 
         client.delete_collection(collection_name)
         db_ref = Qdrant(
