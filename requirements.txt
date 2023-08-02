@@ -1,4 +1,5 @@
 pdfminer
+pdfminer.six
 tensorflow
 sentence-transformers
 rank_bm25
