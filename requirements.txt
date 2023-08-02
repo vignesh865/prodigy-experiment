@@ -1,0 +1,11 @@
+Flask==1.1.2
+Flask_RESTful==0.3.10
+gdown==4.7.1
+langchain
+pandas==1.4.4
+plotly==5.9.0
+pycaret==2.2.3
+qdrant_client
+spacy==3.6.0
+streamlit==1.25.0
+tiktoken==0.3.3
