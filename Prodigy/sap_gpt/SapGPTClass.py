@@ -13,9 +13,9 @@ from langchain.docstore.document import Document
 # from langchain.document_loaders import PyPDFLoader
 from langchain.document_loaders import PDFMinerLoader
 from langchain.document_transformers import EmbeddingsRedundantFilter
-# from langchain.embeddings import SentenceTransformerEmbeddings
+from langchain.embeddings import SentenceTransformerEmbeddings
 # from langchain.embeddings import GPT4AllEmbeddings
-from langchain.embeddings import TensorflowHubEmbeddings
+# from langchain.embeddings import TensorflowHubEmbeddings
 from langchain.prompts import PromptTemplate
 from langchain.retrievers import BM25Retriever, EnsembleRetriever
 from langchain.retrievers import ContextualCompressionRetriever
@@ -38,14 +38,6 @@ class SapGpt:
     # PDF_COLLECTION_NAME = "sap_security"
     PDF_COLLECTION_NAME = "resume"
     OPENAI_API_KEY = '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'
-
-    #
-    # def __init__(self):
-    #     self.embeddings = TensorflowHubEmbeddings()
-    #     self.encoding = tiktoken.encoding_for_model("gpt-3.5-turbo")
-    #     self.llm = ChatOpenAI(temperature=0, openai_api_key=SapGpt.OPENAI_API_KEY)
-    #     self.collection_db_ref = {}
-    #     self.chain = None
 
     # ### Document Loader
     def load_data(self, data_path):
@@ -299,7 +291,8 @@ class SapGpt:
             raise Exception("This class is a singleton!")
         else:
 
-            self.embeddings = TensorflowHubEmbeddings()
+            # self.embeddings = TensorflowHubEmbeddings()
+            self.embeddings = SentenceTransformerEmbeddings()
             self.encoding = tiktoken.encoding_for_model("gpt-3.5-turbo")
             self.llm = ChatOpenAI(temperature=0, openai_api_key=SapGpt.OPENAI_API_KEY)
             self.collection_db_ref = {}
