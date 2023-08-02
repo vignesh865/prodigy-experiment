@@ -2,7 +2,7 @@
 # coding: utf-8
 
 import logging
-
+import gdown
 import numpy as np
 #import plotly.express as px
 import qdrant_client
@@ -43,7 +43,10 @@ class SapGpt:
 
     # ### Document Loader
     def load_data(self, data_path):
-        loader = PDFMinerLoader(data_path)
+        output = './ADM900- 1.pdf'
+        gdown.download(id="1Q6nbtWnZNw7_THOa0UgtqiB_xntTFzY9", output= output, quiet=False)
+        
+        loader = PDFMinerLoader(output)
         all_pages = loader.load_and_split()
 
         page_content = ""
