@@ -33,11 +33,12 @@ from spacy.lang.en import English
 class SapGpt:
     # DATA_PATH = "/Users/VIGNESH.BASKARAN/Documents/Backups/PersonalProjects/Prodigy/demo-sap-knowledgebase/data/ADM900- 1.pdf"
     # DATA_PATH = "/Users/VIGNESH.BASKARAN/Downloads/Personal/Vignesh's Resume V9 Purple.pdf"
-    DATA_PATH = "Prodigy/demo-files/Vignesh's Resume V9 Purple.pdf"
+    # DATA_PATH = "Prodigy/demo-files/Vignesh's Resume V9 Purple.pdf"
+    DATA_PATH = "https://drive.google.com/uc?export=download&id=1Q6nbtWnZNw7_THOa0UgtqiB_xntTFzY9
     CHUNK_SIZE = 512
     CHUNK_OVERLAP = 10
-    # PDF_COLLECTION_NAME = "sap_security"
-    PDF_COLLECTION_NAME = "resume"
+    PDF_COLLECTION_NAME = "sap_security"
+    # PDF_COLLECTION_NAME = "resume"
     OPENAI_API_KEY = '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'
 
     # ### Document Loader
