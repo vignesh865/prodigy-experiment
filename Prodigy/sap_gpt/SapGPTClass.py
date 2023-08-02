@@ -192,7 +192,11 @@ class SapGpt:
             return self.collection_db_ref.get(collection_name)
 
         # client = qdrant_client.QdrantClient("localhost", port=6333, grpc_port=6333)
-        client = qdrant_client.QdrantClient(location = ":memory:")
+        #client = qdrant_client.QdrantClient(location = ":memory:")
+        client = QdrantClient(
+            url="https://e70a4c4d-32b8-491d-a47f-b85967ea8feb.us-east-1-0.aws.cloud.qdrant.io:6333", 
+            api_key="B7W75ejwJNKcoLM5E0DkaMZRFyjlC0nNq4BFDmwMQOQhmvZkz4BQng",
+        )
 
         client.delete_collection(collection_name)
         db_ref = Qdrant(
