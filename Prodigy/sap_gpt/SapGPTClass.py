@@ -32,7 +32,8 @@ from spacy.lang.en import English
 
 class SapGpt:
     # DATA_PATH = "/Users/VIGNESH.BASKARAN/Documents/Backups/PersonalProjects/Prodigy/demo-sap-knowledgebase/data/ADM900- 1.pdf"
-    DATA_PATH = "/Users/VIGNESH.BASKARAN/Downloads/Personal/Vignesh's Resume V9 Purple.pdf"
+    # DATA_PATH = "/Users/VIGNESH.BASKARAN/Downloads/Personal/Vignesh's Resume V9 Purple.pdf"
+    DATA_PATH = "Prodigy/demo-files/Vignesh's Resume V9 Purple.pdf"
     CHUNK_SIZE = 512
     CHUNK_OVERLAP = 10
     # PDF_COLLECTION_NAME = "sap_security"
